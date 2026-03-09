@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新闻中心 - 汉的科技</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="style.css">
 <style>
 .page-header {
   position: relative;
@@ -202,15 +202,15 @@
 }
 </style>
 </head>
-<body>
+<body data-news-managed="dynamic">
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="../index.html" class="nav-brand">
-      <img src="../images/logo.png" alt="汉的科技" class="nav-logo-img">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png" alt="汉的科技" class="nav-logo-img">
     </a>
     <div class="nav-menu">
-      <a href="../index.html">首页</a>
+      <a href="index.html">首页</a>
       <div class="nav-item">
         <a href="solutions.html">解决方案</a>
         <div class="dropdown-menu">
@@ -237,7 +237,7 @@
 </nav>
 
 <div class="page-header">
-  <div class="slide-bg" style="background-image: url('../images/1新闻资讯.png');"></div>
+  <div class="slide-bg" style="background-image: url('images/1新闻资讯.png');"></div>
   <h1>新闻<span>中心</h1>
   <p>公司动态、行业资讯、技术分享</p>
 </div>
@@ -252,79 +252,19 @@
       <div class="news-category">公司新闻</div>
     </div>
     <div class="news-search">
-      <input type="text" placeholder="搜索新闻...">
-      <button>搜索</button>
+      <input id="newsSearchInput" type="text" placeholder="搜索新闻...">
+      <button id="newsSearchBtn" type="button">搜索</button>
     </div>
   </div>
 </div>
 
-<section class="news-list">
-  <div class="news-card reveal reveal-delay-1">
-    <div class="news-img">
-      <div class="news-category-tag">公司新闻</div>
-      <img src="../images/news-1.png" alt="汉明科技参加 2026 年国际通信展">
-    </div>
-    <div class="news-info">
-      <h3>汉明科技参加 2026 年国际通信展</h3>
-      <p>展示最新解决方案与服务体系，获得广泛关注。展会期间与多家企业达成合作意向。</p>
-      <div class="news-meta">
-        <span class="news-date">2026-03-01</span>
-        <a href="news-detail.html?id=news1" class="news-read-more">阅读更多 →</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="news-card reveal reveal-delay-2">
-    <div class="news-img">
-      <div class="news-category-tag">产品信息</div>
-      <img src="../images/news-2.png" alt="服务升级：7×24 小时技术支持上线">
-    </div>
-    <div class="news-info">
-      <h3>服务升级：7×24 小时技术支持上线</h3>
-      <p>为更好服务客户，公司全面升级技术支持体系，实现 7×24 小时全天候响应。</p>
-      <div class="news-meta">
-        <span class="news-date">2026-02-15</span>
-        <a href="news-detail.html?id=news2" class="news-read-more">阅读更多 →</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="news-card reveal reveal-delay-3">
-    <div class="news-img">
-      <div class="news-category-tag">公司新闻</div>
-      <img src="../images/news-3.png" alt="公司荣获'优秀供应商'称号">
-    </div>
-    <div class="news-info">
-      <h3>公司荣获"优秀供应商"称号</h3>
-      <p>感谢客户信任与支持，我们将继续提供优质服务，创造更大价值。</p>
-      <div class="news-meta">
-        <span class="news-date">2026-01-20</span>
-        <a href="news-detail.html?id=news3" class="news-read-more">阅读更多 →</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="news-card reveal reveal-delay-4">
-    <div class="news-img">
-      <div class="news-category-tag">行业资讯</div>
-      <img src="../images/海能达 2025欧洲.png" alt="海能达亮相 PMRExpo 2025，深化欧洲关键通信布局">
-    </div>
-    <div class="news-info">
-      <h3>海能达亮相 PMRExpo 2025，深化欧洲关键通信布局</h3>
-      <p>海能达在 PMRExpo 2025 展示了其在欧洲关键通信布局中的创新应用，为欧洲通信行业带来了新的机遇。</p>
-      <div class="news-meta">
-        <span class="news-date">2026-01-10</span>
-        <a href="news-detail.html?id=news4" class="news-read-more">阅读更多 →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="news-list" id="newsList"></section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="nav-brand">
-        <img src="../images/logo.png" alt="汉的科技" class="nav-logo-img">
+        <img src="images/logo.png" alt="汉的科技" class="nav-logo-img">
       </div>
       <p>专业通信系统解决方案提供商<br>定制化解决方案 + 全方位服务支持</p>
       <div class="footer-social">
@@ -354,7 +294,7 @@
         <a href="about.html">公司简介</a>
         <a href="about.html">案例展示</a>
         <a href="news.html">新闻中心</a>
-        <a href="contact.html">联系我们</a>
+        <a href="about.html#contact">联系我们</a>
       </div>
     </div>
   </div>
@@ -388,6 +328,78 @@
   </a>
 </div>
 
-<script src="../js/main.js"></script>
+<script src="news-data.js"></script>
+<script src="main.js"></script>
+<script>
+(function () {
+  const newsList = document.getElementById('newsList');
+  const categoryButtons = document.querySelectorAll('.news-category');
+  const searchInput = document.getElementById('newsSearchInput');
+  const searchButton = document.getElementById('newsSearchBtn');
+
+  if (!newsList || !window.NEWS_DATA) return;
+
+  let selectedCategory = '全部';
+  let keyword = '';
+
+  function getFilteredNews() {
+    return window.NEWS_DATA.filter((item) => {
+      const matchCategory = selectedCategory === '全部' || item.category === selectedCategory;
+      const q = keyword.trim().toLowerCase();
+      const matchKeyword = !q || item.title.toLowerCase().includes(q) || item.summary.toLowerCase().includes(q);
+      return matchCategory && matchKeyword;
+    });
+  }
+
+  function renderNews() {
+    const list = getFilteredNews();
+
+    if (list.length === 0) {
+      newsList.innerHTML = '<p style="padding:20px; text-align:center; color:var(--text-muted);">暂无符合条件的新闻</p>';
+      return;
+    }
+
+    newsList.innerHTML = list.map((item, index) => `
+      <div class="news-card reveal reveal-delay-${(index % 4) + 1}">
+        <div class="news-img">
+          <div class="news-category-tag">${item.category}</div>
+          <img src="${item.cover}" alt="${item.title}">
+        </div>
+        <div class="news-info">
+          <h3>${item.title}</h3>
+          <p>${item.summary}</p>
+          <div class="news-meta">
+            <span class="news-date">${item.date}</span>
+            <a href="news-detail.html?id=${item.id}" class="news-read-more">阅读更多 →</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      categoryButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+      selectedCategory = button.textContent.trim();
+      renderNews();
+    });
+  });
+
+  searchButton.addEventListener('click', () => {
+    keyword = searchInput.value;
+    renderNews();
+  });
+
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      keyword = searchInput.value;
+      renderNews();
+    }
+  });
+
+  renderNews();
+})();
+</script>
 </body>
 </html>
