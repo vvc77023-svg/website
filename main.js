@@ -236,6 +236,10 @@ function initMobileMenu() {
 // 新闻分类筛选
 // ===================================
 function initNewsCategoryFilter() {
+  if (document.body && document.body.dataset.newsManaged === 'dynamic') {
+    return;
+  }
+
   const categoryButtons = document.querySelectorAll('.news-category');
   const newsCards = document.querySelectorAll('.news-card');
   

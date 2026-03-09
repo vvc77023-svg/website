@@ -221,95 +221,33 @@
   </a>
 </div>
 
+<script src="news-data.js"></script>
 <script src="main.js"></script>
 <script>
-// 新闻数据
-const newsData = {
-  'news1': {
-    title: '汉明科技参加 2026 年国际通信展',
-    category: '公司新闻',
-    date: '2026-03-01',
-    content: `
-      <div class="news-detail-image">
-        <img src="images/news-1.png" alt="汉明科技参加 2026 年国际通信展">
-      </div>
-      <p>3月1日至3日，汉明科技参加了在上海举办的2026年国际通信展，展示了公司最新的解决方案与服务体系。</p>
-      <p>展会期间，汉明科技的展台吸引了众多行业专业人士的关注，展示的智能通信系统解决方案获得了广泛好评。公司代表与多家企业进行了深入交流，达成了多项合作意向。</p>
-      <p>作为专业的通信系统解决方案提供商，汉明科技一直致力于为客户提供高品质的产品和服务。此次参展，不仅展示了公司的技术实力，也为未来的业务发展奠定了坚实的基础。</p>
-      <p>汉明科技将继续秉承"创新、专业、服务"的理念，不断提升技术水平，为客户创造更大的价值。</p>
-    `
-  },
-  'news2': {
-    title: '服务升级：7×24 小时技术支持上线',
-    category: '产品信息',
-    date: '2026-02-15',
-    content: `
-      <div class="news-detail-image">
-        <img src="images/news-2.png" alt="服务升级：7×24 小时技术支持上线">
-      </div>
-      <p>为更好地服务客户，汉明科技全面升级技术支持体系，从2026年2月15日起正式推出7×24小时全天候技术支持服务。</p>
-      <p>新的技术支持体系将为客户提供更加及时、专业的技术服务，包括：</p>
-      <p>1. 7×24小时电话技术支持</p>
-      <p>2. 在线技术咨询服务</p>
-      <p>3. 远程技术诊断与故障排除</p>
-      <p>4. 定期系统维护与优化建议</p>
-      <p>汉明科技始终将客户需求放在首位，通过不断完善服务体系，为客户提供更加全面、专业的技术支持，确保客户系统的稳定运行。</p>
-    `
-  },
-  'news3': {
-    title: '公司荣获"优秀供应商"称号',
-    category: '公司新闻',
-    date: '2026-01-20',
-    content: `
-      <div class="news-detail-image">
-        <img src="images/news-3.png" alt="公司荣获'优秀供应商'称号">
-      </div>
-      <p>近日，汉明科技凭借卓越的产品质量和优质的服务，被评为"2025年度优秀供应商"。</p>
-      <p>这一荣誉是对汉明科技长期以来坚持品质第一、服务至上理念的认可。公司自成立以来，始终致力于为客户提供高品质的通信系统解决方案，赢得了广大客户的信任和支持。</p>
-      <p>汉明科技将以此为动力，继续加强产品研发和服务创新，不断提升核心竞争力，为客户创造更大的价值。</p>
-      <p>感谢所有客户的信任与支持，我们将继续努力，为您提供更加优质的产品和服务。</p>
-    `
-  },
-  'news4': {
-    title: '5G 技术在通信系统中的应用前景',
-    category: '行业资讯',
-    date: '2026-01-10',
-    content: `
-      <div class="news-detail-image">
-        <img src="images/news-4.png" alt="5G 技术在通信系统中的应用前景">
-      </div>
-      <p>随着5G技术的不断发展和普及，其在通信系统中的应用前景越来越广阔。作为新一代移动通信技术，5G具有高速率、低延迟、大连接等特点，为通信系统的发展带来了新的机遇。</p>
-      <p>5G技术在通信系统中的应用主要体现在以下几个方面：</p>
-      <p>1. 智能建筑：通过5G网络实现建筑设备的智能化管理和控制，提高建筑的安全性和能效。</p>
-      <p>2. 交通枢纽：利用5G技术实现交通系统的实时监控和智能调度，提高交通效率和安全性。</p>
-      <p>3. 石油化工：通过5G网络实现工业设备的远程监控和故障预警，提高生产效率和安全性。</p>
-      <p>4. 应急指挥：利用5G技术实现应急指挥系统的实时通信和数据传输，提高应急响应能力。</p>
-      <p>汉明科技作为专业的通信系统解决方案提供商，积极拥抱5G技术，不断研发和推出基于5G技术的创新解决方案，为客户创造更大的价值。</p>
-    `
-  }
-};
-
-// 获取URL参数
 function getUrlParam(name) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);
 }
 
-// 加载新闻详情
 function loadNewsDetail() {
   const newsId = getUrlParam('id');
-  if (newsId && newsData[newsId]) {
-    const news = newsData[newsId];
+  const newsList = window.NEWS_DATA || [];
+  const news = newsList.find((item) => item.id === newsId);
+
+  if (news) {
     document.getElementById('newsCategory').textContent = news.category;
     document.getElementById('newsTitle').textContent = news.title;
     document.getElementById('newsDate').textContent = news.date;
     document.getElementById('newsContent').innerHTML = news.content;
+    document.title = `${news.title} - 汉的科技`;
   } else {
-    document.getElementById('newsContent').innerHTML = '<p>新闻不存在或已被删除</p>';
+    document.getElementById('newsCategory').textContent = '提示';
+    document.getElementById('newsTitle').textContent = '未找到该新闻';
+    document.getElementById('newsDate').textContent = '';
+    document.getElementById('newsContent').innerHTML = '<p>新闻不存在或已被删除，请返回新闻中心查看最新内容。</p>';
   }
 }
 
-// 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', loadNewsDetail);
 </script>
 </body>
