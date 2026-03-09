@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杭州汉的科技 - 专业通信系统解决方案提供商</title>
+<meta name="description" content="专业通信系统解决方案提供商，提供定制化解决方案与全方位服务支持，服务智能建筑、交通枢纽、石油化工等行业">
+<meta name="keywords" content="通信系统解决方案，智能建筑，交通枢纽，服务支持，技术咨询">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* 左侧悬浮导航栏 */
+  .left-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 25px var(--shadow);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .left-nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .left-nav h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .left-nav li {
+    margin-bottom: 15px;
+  }
+  .left-nav a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: var(--transition);
+  }
+  .left-nav a:hover {
+    background: var(--primary);
+    color: var(--accent);
+    transform: translateX(5px);
+  }
+  .left-nav a.active {
+    background: var(--accent);
+    color: white;
+  }
+  @media (max-width: 992px) {
+    .left-nav {
+      position: relative;
+      left: auto;
+      top: auto;
+      transform: none;
+      margin: 0 auto 40px;
+      max-width: 600px;
+    }
+    .left-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .left-nav li {
+      margin-bottom: 0;
+    }
+    .left-nav a {
+      white-space: nowrap;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 左侧悬浮导航栏 -->
+<div class="left-nav">
+  <h3>快速导航</h3>
+  <ul>
+    <li><a href="#solutions-section">解决方案</a></li>
+    <li><a href="#detection-section">检测系统</a></li>
+    <li><a href="#service-section">服务支持</a></li>
+    <li><a href="#contact-section">联系我们</a></li>
+  </ul>
+</div>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png" alt="汉的科技" class="nav-logo-img">
+    </a>
+    <div class="nav-menu">
+      <a href="index.html" class="active">首页</a>
+      <div class="nav-item">
+        <a href="pages/solutions.html">解决方案</a>
+        <div class="dropdown-menu">
+          <a href="pages/solutions.html#building">智能建筑</a>
+          <a href="pages/solutions.html#transport">交通枢纽</a>
+          <a href="pages/solutions.html#industry">石油化工</a>
+          <a href="pages/solutions.html#hotel">酒店物业</a>
+          <a href="pages/solutions.html#emergency">应急指挥</a>
+          <a href="pages/solutions.html#education">教育医疗</a>
+        </div>
+      </div>
+      <a href="pages/detection.html">检测系统</a>
+      <div class="nav-item">
+        <a href="pages/about.html">关于我们</a>
+        <div class="dropdown-menu">
+          <a href="pages/about.html">公司简介</a>
+          <a href="pages/about.html">服务承诺</a>
+          <a href="pages/about.html#contact">联系我们</a>
+        </div>
+      </div>
+      <a href="pages/news.html">新闻中心</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 轮播 -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active">
+      <div class="slide-bg" style="background-image: url('images/城市背景.jpg');"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <span class="slide-tag">INTELLIGENT BUILDING</span>
+          <h1 class="slide-title">智能建筑<span>解决方案</span></h1>
+          <p class="slide-desc">为写字楼、商场、酒店提供全方位通信系统解决方案，确保沟通无障碍，管理更高效</p>
+          <a href="pages/solutions.html#building" class="slide-btn">了解详情 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-slide">
+      <div class="slide-bg" style="background-image: url('images/轮播图2.png');"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <span class="slide-tag">TRANSPORTATION</span>
+          <h1 class="slide-title">交通枢纽<span>解决方案</span></h1>
+          <p class="slide-desc">地铁、机场、车站专用通信系统，保障运营安全，提升应急处理能力</p>
+          <a href="pages/solutions.html#transport" class="slide-btn">了解详情 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-slide">
+      <div class="slide-bg" style="background-image: url('images/联系我们.png')"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <span class="slide-tag">24/7 SUPPORT</span>
+          <h1 class="slide-title">7×24 小时<span>服务支持</span></h1>
+          <p class="slide-desc">专业团队全天候待命，2 小时响应，24 小时到场，确保系统稳定运行</p>
+          <a href="pages/about.html" class="slide-btn">了解我们 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-dots">
+    <span class="hero-dot active" data-slide="0"></span>
+    <span class="hero-dot" data-slide="1"></span>
+    <span class="hero-dot" data-slide="2"></span>
+  </div>
+</section>
+
+<!-- 解决方案专区 -->
+<section id="solutions-section">
+  <div class="container">
+    <div class="section-header reveal" style="position:relative;">
+      <span class="section-tag">SOLUTIONS</span>
+      <h2 class="section-title">行业<span>解决方案</span></h2>
+      <p class="section-sub">针对不同行业特点，提供定制化通信系统解决方案</p>
+      <div style="position:absolute; left:-200px; top:0; width:1300px; max-width:100%; height:100%; background:#d0e0ff; z-index:-1;">
+        <div style="position:absolute; right:-24px; top:0; width:0; height:0; border-left:24px solid #d0e0ff; border-top:50px solid transparent; border-bottom:50px solid transparent;"></div>
+      </div>
+    </div>
+    
+    <div class="solutions-grid">
+      <div class="solution-card reveal reveal-delay-1">
+        <div class="solution-img">
+          <img src="images/智能建筑.webp" alt="智能建筑" class="solution-img-img">
+        </div>
+        <div class="solution-info">
+          <h3 class="solution-name">智能建筑解决方案</h3>
+          <p class="solution-desc">为写字楼、商场、酒店提供全覆盖通信系统，集成门禁、监控、广播等功能</p>
+          <div class="solution-features">
+            <span class="solution-tag">全覆盖</span>
+            <span class="solution-tag">智能化</span>
+            <span class="solution-tag">易管理</span>
+          </div>
+          <a href="pages/solutions.html#building" class="solution-link">了解详情（含案例） →</a>
+        </div>
+      </div>
+      
+      <div class="solution-card reveal reveal-delay-2">
+        <div class="solution-img">
+          <img src="images/交通枢纽.webp" alt="交通枢纽" class="solution-img-img">
+        </div>
+        <div class="solution-info">
+          <h3 class="solution-name">交通枢纽解决方案</h3>
+          <p class="solution-desc">地铁、机场、车站专用通信系统，支持大规模并发，保障应急通信</p>
+          <div class="solution-features">
+            <span class="solution-tag">高可靠</span>
+            <span class="solution-tag">大容量</span>
+            <span class="solution-tag">应急联动</span>
+          </div>
+          <a href="pages/solutions.html#transport" class="solution-link">了解详情（含案例） →</a>
+        </div>
+      </div>
+      
+      <div class="solution-card reveal reveal-delay-3">
+        <div class="solution-img">
+          <img src="images/石油化工.webp" alt="石油化工" class="solution-img-img">
+        </div>
+        <div class="solution-info">
+          <h3 class="solution-name">石油化工解决方案</h3>
+          <p class="solution-desc">防爆通信系统，满足危险环境安全要求，支持区域调度与应急指挥</p>
+          <div class="solution-features">
+            <span class="solution-tag">防爆认证</span>
+            <span class="solution-tag">安全可靠</span>
+            <span class="solution-tag">应急指挥</span>
+          </div>
+          <a href="pages/solutions.html#industry" class="solution-link">了解详情（含案例） →</a>
+        </div>
+      </div>
+      
+      <div class="solution-card reveal reveal-delay-1">
+        <div class="solution-img">
+          <img src="images/酒店物业.webp" alt="酒店物业" class="solution-img-img">
+        </div>
+        <div class="solution-info">
+          <h3 class="solution-name">智能工厂解决方案</h3>
+          <p class="solution-desc">提升工厂运行效率的通信系统，支持调度、录音、报警等功能</p>
+          <div class="solution-features">
+            <span class="solution-tag">效率提升</span>
+            <span class="solution-tag">功能完善</span>
+            <span class="solution-tag">易部署</span>
+          </div>
+          <a href="pages/solutions.html#hotel" class="solution-link">了解详情（含案例） →</a>
+        </div>
+      </div>
+      
+      <div class="solution-card reveal reveal-delay-2">
+        <div class="solution-img">
+          <img src="images/应急指挥.webp" alt="应急指挥" class="solution-img-img">
+        </div>
+        <div class="solution-info">
+          <h3 class="solution-name">应急指挥解决方案</h3>
+          <p class="solution-desc">应急通信指挥系统，支持多方会商、视频联动、快速部署</p>
+          <div class="solution-features">
+            <span class="solution-tag">快速响应</span>
+            <span class="solution-tag">多方会商</span>
+            <span class="solution-tag">视频联动</span>
+          </div>
+          <a href="pages/solutions.html#emergency" class="solution-link">了解详情（含案例） →</a>
+        </div>
+      </div>
+      
+      
+      </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:50px;">
+      <a href="pages/solutions.html" class="btn-primary">查看全部解决方案（含案例） →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 检测系统专区 -->
+<section id="detection-section" style="background:linear-gradient(135deg, #f0f5ff 0%, #e8f0fe 100%); padding:80px 20px; color:#0d1a2e; position:relative; overflow:hidden;">
+  <div style="position:absolute; top:-50%; right:-10%; width:600px; height:600px; background:radial-gradient(circle, rgba(0,153,255,0.07), transparent 70%); pointer-events:none;"></div>
+  <div class="container" style="position:relative; z-index:1;">
+    <div class="section-header reveal" style="margin-bottom:50px; position:relative;">
+      <span class="section-tag" style="color:#0055cc;">HANDMIND DETECTION</span>
+      <h2 class="section-title">HandMind<span>检测系统</span></h2>
+      <p class="section-sub">智能监测 · 实时预警 · 保障通信系统稳定运行</p>
+      <div style="position:absolute; left:-200px; top:0; width:1300px; max-width:100%; height:100%; background:#d0e0ff; z-index:-1;">
+        <div style="position:absolute; right:-24px; top:0; width:0; height:0; border-left:24px solid #d0e0ff; border-top:50px solid transparent; border-bottom:50px solid transparent;"></div>
+      </div>
+    </div>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; max-width:2560px; margin-left:150px;margin-right:150px;">
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:30px;">
+          <div style="background:white; border:1px solid #e9ecef; border-radius:12px; padding:25px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <img src="images/实时检测.jpg" alt="实时监测" style="width:225px; height:160px; margin-bottom:10px;">
+            <div style="font-size:14px; color:#0d1a2e;">实时监测</div>
+          </div>
+          <div style="background:white; border:1px solid #e9ecef; border-radius:12px; padding:25px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <img src="images/智能分析.jpg" alt="智能分析" style="width:225px; height:160px; margin-bottom:10px;">
+            <div style="font-size:14px; color:#0d1a2e;">智能分析</div>
+          </div>
+          <div style="background:white; border:1px solid #e9ecef; border-radius:12px; padding:25px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <img src="images/预警推送.jpg" alt="预警推送" style="width:225px; height:160px; margin-bottom:10px;">
+            <div style="font-size:14px; color:#0d1a2e;">预警推送</div>
+          </div>
+          <div style="background:white; border:1px solid #e9ecef; border-radius:12px; padding:25px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <img src="images/智能控制.jpg" alt="移动管理" style="width:225px; height:160px; margin-bottom:10px;">
+            <div style="font-size:14px; color:#0d1a2e;">移动管理</div>
+          </div>
+        </div>
+        <p style="font-size:18px; line-height:1.9; color:#5a6e8a; margin-bottom:25px;">
+          HandMind 检测系统是汉的科技自主研发的通信系统智能检测平台，
+          集实时监测、智能分析、预警推送于一体。7×24 小时不间断监控，
+          提前发现潜在问题，保障通信系统稳定运行。
+        </p>
+        <div style="display:flex; gap:100px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:32px; font-weight:800; color:#0055cc;">99.9%</div>
+            <div style="font-size:17px; color:#8a9fb5;">故障识别准确率</div>
+          </div>
+          <div>
+            <div style="font-size:32px; font-weight:800; color:#0055cc;">100ms</div>
+            <div style="font-size:17px; color:#8a9fb5;">数据采集间隔</div>
+          </div>
+          <div>
+            <div style="font-size:32px; font-weight:800; color:#0055cc;">7×24h</div>
+            <div style="font-size:17px; color:#8a9fb5;">全天候监控</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="reveal reveal-delay-2" style="background:white; border:1px solid #e9ecef; border-radius:16px; padding:50px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.05);">
+        <!-- 检测系统大屏图片 -->
+        <div style="width:100%; height:300px; border-radius:12px; overflow:hidden; margin-bottom:20px;">
+          <img src="images/检测系统.webp" alt="检测系统大屏" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:18px; font-weight:600; margin-bottom:10px; color:#0d1a2e;">智能监控大屏</div>
+        <div style="font-size:14px; color:#5a6e8a;">实时展示系统状态</div>
+      </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:50px;">
+      <a href="pages/detection.html" class="btn-primary">了解详情 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 服务支持专区 -->
+<section class="service-section" id="service-section">
+  <div class="container">
+    <div class="section-header reveal" style="position:relative;">
+      <span class="section-tag">SERVICE</span>
+      <h2 class="section-title">全方位<span>服务支持</span></h2>
+      <p class="section-sub">从咨询到维护，提供全生命周期服务支持</p>
+      <div style="position:absolute; left:-200px; top:0; width:1300px; max-width:100%; height:100%; background:#d0e0ff; z-index:-1;">
+        <div style="position:absolute; right:-24px; top:0; width:0; height:0; border-left:24px solid #d0e0ff; border-top:50px solid transparent; border-bottom:50px solid transparent;"></div>
+      </div>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">💬</div>
+        <h3 class="service-name">售前咨询</h3>
+        <p class="service-desc">免费需求分析，提供专业建议和初步方案</p>
+      </div>
+      
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📐</div>
+        <h3 class="service-name">方案设计</h3>
+        <p class="service-desc">定制化系统设计，确保满足业务需求</p>
+      </div>
+      
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🔧</div>
+        <h3 class="service-name">安装调试</h3>
+        <p class="service-desc">专业团队施工，确保系统稳定运行</p>
+      </div>
+      
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📚</div>
+        <h3 class="service-name">培训服务</h3>
+        <p class="service-desc">系统操作培训，确保熟练使用</p>
+      </div>
+      
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🛠️</div>
+        <h3 class="service-name">售后维护</h3>
+        <p class="service-desc">定期巡检，预防性维护，延长系统寿命</p>
+      </div>
+      
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">📞</div>
+        <h3 class="service-name">技术支持</h3>
+        <p class="service-desc">7×24 小时技术支持，快速响应问题</p>
+      </div>
+    </div>
+    
+    <!-- 服务流程与数据展示 -->
+    <div class="container">
+      <h3 style="text-align:left; font-size:24px; margin-bottom:40px;margin-left:150px;margin-top:60px;color:var(--text);">服务流程</h3>
+      <div style="display:grid;  gap:50px;grid-template-columns:1fr 1fr; width:100%; margin:0;">
+        <!-- 数据展示 -->
+        <div class="stats-grid">
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number">2000+</div>
+            <div class="stat-label">服务客户</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">覆盖国内与国际地区</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number">2h</div>
+            <div class="stat-label">响应时间</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-4">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">客户满意度</div>
+          </div>
+        </div>
+        <!-- 服务流程 -->
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="process-dot">1</div>
+            <div class="process-title">需求沟通</div>
+            <div class="process-desc">了解客户需求</div>
+          </div>
+          <div class="process-step">
+            <div class="process-dot">2</div>
+            <div class="process-title">现场勘察</div>
+            <div class="process-desc">实地环境评估</div>
+          </div>
+          <div class="process-step">
+            <div class="process-dot">3</div>
+            <div class="process-title">方案设计</div>
+            <div class="process-desc">定制解决方案</div>
+          </div>
+          <div class="process-step">
+            <div class="process-dot">4</div>
+            <div class="process-title">实施部署</div>
+            <div class="process-desc">系统安装调试</div>
+          </div>
+          <div class="process-step">
+            <div class="process-dot">5</div>
+            <div class="process-title">培训服务</div>
+            <div class="process-desc">系统操作培训</div>
+          </div>
+           <div class="process-step">
+            <div class="process-dot">6</div>
+            <div class="process-title">售后维护</div>
+            <div class="process-desc">持续技术支持</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系表单 -->
+<section class="contact-section" id="contact-section" style="position:relative; background-image: url('images/4.png'); background-size:contain; background-position: right center ;">
+  <div class="container" style="position:relative; z-index:1; color:white;">
+    <div class="section-header reveal" style="position:relative;">
+      <span class="section-tag" style="color:#ffffff;">CONTACT</span>
+      <h2 class="section-title" style="color:#ffffff;">联系<span>我们</span></h2>
+      <p class="section-sub" style="color:#e0e0e0;">专业团队，为您提供定制化通信解决方案</p>
+      <div style="position:absolute; left:-200px; top:0; width:1300px; max-width:100%; height:100%; background:rgba(255,255,255,0.1); z-index:-1;">
+        <div style="position:absolute; right:-24px; top:0; width:0; height:0; border-left:24px solid rgba(255,255,255,0.1); border-top:50px solid transparent; border-bottom:50px solid transparent;"></div>
+      </div>
+    </div>
+    
+    <div class="contact-inner">
+      <div class="contact-items reveal">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>电话咨询</strong>
+            139-6712-4481
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <strong>邮箱联系</strong>
+            handmind@139.com
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>公司地址</strong>
+            浙江省杭州市 XXX 区 XXX 路 XXX 号
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">⏰</div>
+          <div class="contact-item-text">
+            <strong>服务时间</strong>
+            周一至周日 7×24 小时
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form reveal reveal-delay-2">
+        <form>
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="您的姓名 *" required style="background:rgba(255,255,255,0.9); color:#333;">
+            <input type="tel" class="form-input" placeholder="联系电话 *" required style="background:rgba(255,255,255,0.9); color:#333;">
+          </div>
+          <div class="form-row">
+            <input type="email" class="form-input" placeholder="电子邮箱" style="background:rgba(255,255,255,0.9); color:#333;">
+            <input type="text" class="form-input" placeholder="公司名称" style="background:rgba(255,255,255,0.9); color:#333;">
+          </div>
+          <input type="text" class="form-input" placeholder="所属行业" style="background:rgba(255,255,255,0.9); color:#333;">
+          <textarea class="form-input" rows="5" placeholder="请描述您的需求..." style="background:rgba(255,255,255,0.9); color:#333;"></textarea>
+          <button type="submit" class="btn-primary btn-full" style="background:#0055cc; border-color:#0055cc;">提交咨询 →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 悬浮工具栏 -->
+<div class="float-toolbar">
+  <div class="float-btn" id="wechatBtn">
+    <span>💬</span>
+    <div class="float-tooltip">
+      <div style="width:120px; height:120px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:8px;">微信二维码</div>
+      <p>扫码添加微信</p>
+    </div>
+  </div>
+  <div class="float-btn" id="phoneBtn">
+    <span>📞</span>
+    <div class="float-tooltip">
+      <p style="font-size:16px; font-weight:600; color:var(--accent);">139-6712-4481</p>
+    </div>
+  </div>
+  <a href="pages/about.html#contact" class="float-btn">
+    <span>✉️</span>
+    <div class="float-tooltip">在线咨询</div>
+  </a>
+  <a href="#" class="float-btn" id="backToTop">
+    <span>↑</span>
+    <div class="float-tooltip">返回顶部</div>
+  </a>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <img src="images/logo.png" alt="汉明科技" class="nav-logo-img">
+      </div>
+      <p>专业通信系统解决方案提供商<br>定制化解决方案 + 全方位服务支持</p>
+      <div class="footer-social">
+        <div class="social-icon">💬</div>
+        <div class="social-icon">📱</div>
+        <div class="social-icon">✉️</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>解决方案</h4>
+        <a href="pages/solutions.html#building">智能建筑</a>
+        <a href="pages/solutions.html#transport">交通枢纽</a>
+        <a href="pages/solutions.html#industry">石油化工</a>
+        <a href="pages/solutions.html#hotel">酒店物业</a>
+      </div>
+      <div class="footer-col">
+        <h4>检测系统</h4>
+        <a href="pages/detection.html">系统介绍</a>
+        <a href="pages/detection.html#features">核心功能</a>
+        <a href="pages/detection.html#tech">技术优势</a>
+        <a href="pages/detection.html#scenario">应用场景</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="pages/about.html">公司简介</a>
+        <a href="pages/cases.html">案例展示</a>
+        <a href="pages/news.html">新闻中心</a>
+        <a href="pages/contact.html">联系我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2026 杭州汉明科技有限公司 版权所有</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// 左侧导航栏滚动激活状态
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.left-nav a');
+const leftNav = document.querySelector('.left-nav');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - 200)) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').substring(1) === current) {
+      link.classList.add('active');
+    }
+  });
+  
+  // 控制导航栏显示/隐藏
+  const solutionsSection = document.getElementById('solutions-section');
+  if (solutionsSection) {
+    const solutionsTop = solutionsSection.offsetTop;
+    if (pageYOffset >= (solutionsTop - 300)) {
+      leftNav.classList.add('visible');
+    } else {
+      leftNav.classList.remove('visible');
+    }
+  }
+});
+</script>
+</body>
+</html>

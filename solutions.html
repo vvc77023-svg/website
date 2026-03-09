@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解决方案与案例 - 汉的科技</title>
+<meta name="description" content="行业通信系统解决方案与成功案例，智能建筑、交通枢纽、石油化工等行业应用">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.page-header {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  padding-top: 70px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(240,246,255,0.92) 40%, transparent);
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.page-header h1 span { color: var(--accent); }
+.page-header p { font-size: 16px; color: var(--text-muted); }
+.solution-section {
+  padding: 60px 20px;
+  max-width: 2560px;
+  margin-left:150px;
+  margin-right:150px;
+
+}
+.solution-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.solution-header {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: white;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.solution-header-img {
+  width: 100%;
+  height: 200px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255,255,255,0.3);
+}
+.solution-header-img-placeholder {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+}
+.solution-header-img-placeholder .icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.solution-header-img-placeholder .text {
+  font-size: 14px;
+  font-weight: 600;
+}
+.solution-header-img-placeholder .size {
+  font-size: 11px;
+  margin-top: 5px;
+  opacity: 0.6;
+}
+.solution-header h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+.solution-header p {
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+.solution-icon {
+  font-size: 80px;
+  text-align: center;
+  opacity: 0.9;
+}
+.solution-content {
+  padding: 40px;
+}
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+.solution-feature {
+  background: var(--primary);
+  border-radius: 10px;
+  padding: 25px;
+}
+.solution-feature h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.solution-feature p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.case-showcase {
+  background: var(--surface2);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+.case-showcase h3 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: var(--text);
+  display: flex;
+  align-items: left;
+  gap: 10px;
+}
+.case-showcase h3:before {
+  content: '⭐';
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+.case-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 25px;
+  transition: var(--transition);
+}
+.case-item:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 8px 24px var(--glow);
+  transform: translateY(-2px);
+}
+.case-item h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.case-item p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+.case-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.case-tag {
+  padding: 4px 10px;
+  background: var(--accent-light);
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+.case-stat {
+  text-align: center;
+}
+.case-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.case-stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+}
+@media (max-width: 992px) {
+  .solution-header,
+  .solution-grid,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  /* 左侧悬浮导航栏 */
+  .left-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 25px var(--shadow);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .left-nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .left-nav h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .left-nav li {
+    margin-bottom: 15px;
+  }
+  .left-nav a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: var(--transition);
+  }
+  .left-nav a:hover {
+    background: var(--primary);
+    color: var(--accent);
+    transform: translateX(5px);
+  }
+  .left-nav a.active {
+    background: var(--accent);
+    color: white;
+  }
+  @media (max-width: 992px) {
+    .left-nav {
+      position: relative;
+      left: auto;
+      top: auto;
+      transform: none;
+      margin: 0 auto 40px;
+      max-width: 600px;
+    }
+    .left-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .left-nav li {
+      margin-bottom: 0;
+    }
+    .left-nav a {
+      white-space: nowrap;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 左侧悬浮导航栏 -->
+<div class="left-nav">
+  <h3>解决方案分类</h3>
+  <ul>
+    <li><a href="#building">智能建筑</a></li>
+    <li><a href="#transport">交通枢纽</a></li>
+    <li><a href="#industry">石油化工</a></li>
+    <li><a href="#hotel">酒店物业</a></li>
+    <li><a href="#emergency">应急指挥</a></li>
+    <li><a href="#education">教育医疗</a></li>
+  </ul>
+</div>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../images/logo.png" alt="汉明科技" class="nav-logo-img">
+    </a>
+    <div class="nav-menu">
+      <a href="../index.html">首页</a>
+      <div class="nav-item">
+        <a href="solutions.html" class="active">解决方案</a>
+        <div class="dropdown-menu">
+          <a href="solutions.html#building">智能建筑</a>
+          <a href="solutions.html#transport">交通枢纽</a>
+          <a href="solutions.html#industry">石油化工</a>
+          <a href="solutions.html#hotel">酒店物业</a>
+          <a href="solutions.html#emergency">应急指挥</a>
+          <a href="solutions.html#education">教育医疗</a>
+        </div>
+      </div>
+      <a href="detection.html">检测系统</a>
+      <div class="nav-item">
+        <a href="about.html">关于我们</a>
+        <div class="dropdown-menu">
+          <a href="about.html">公司简介</a>
+          <a href="about.html">服务承诺</a>
+          <a href="about.html#contact">联系我们</a>
+        </div>
+      </div>
+      <a href="news.html">新闻中心</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="slide-bg" style="background-image: url('../images/摩天大楼.png');"></div>
+  <div class="page-header-content">
+    <h1>解决方案与<span>成功案例</span></h1>
+    <p>针对不同行业特点，提供定制化通信系统解决方案</p>
+  </div>
+</div>
+
+<section class="solution-section">
+  
+  <!-- 智能建筑 -->
+  <div class="solution-block reveal" id="building" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🏢 智能建筑解决方案</h2>
+          <p>为写字楼、商场、酒店等智能建筑提供全覆盖通信系统，集成门禁、监控、广播等功能，提升管理效率和服务质量。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：智能建筑 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🏢</div>
+              <div class="text">智能建筑图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-building.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>全覆盖无死角</h3>
+            <p>无线通信系统覆盖建筑每个角落，包括地下室、电梯等信号盲区</p>
+          </div>
+          <div class="solution-feature">
+            <h3>多系统集成</h3>
+            <p>集成门禁、监控、广播、消防等系统，统一管理</p>
+          </div>
+          <div class="solution-feature">
+            <h3>智能调度</h3>
+            <p>根据人员位置和事件类型，智能调度最近人员处理</p>
+          </div>
+          <div class="solution-feature">
+            <h3>应急联动</h3>
+            <p>紧急情况自动触发应急预案，快速响应</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>杭州国际会议中心</h4>
+            <p>大型会议展览场所通信系统，覆盖全区域，支持大型活动通信保障。</p>
+            <div class="case-tags">
+              <span class="case-tag">5000+ 并发</span>
+              <span class="case-tag">全覆盖</span>
+              <span class="case-tag">应急指挥</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">5000+</div>
+                <div class="case-stat-label">并发用户</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">60%</div>
+                <div class="case-stat-label">响应提速</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">99.9%</div>
+                <div class="case-stat-label">系统可用</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-item">
+            <h4>杭州某 CBD 写字楼</h4>
+            <p>5A 级写字楼通信系统，集成门禁、监控、广播，服务 30+ 企业。</p>
+            <div class="case-tags">
+              <span class="case-tag">多系统集成</span>
+              <span class="case-tag">智能管理</span>
+              <span class="case-tag">易扩展</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">30+</div>
+                <div class="case-stat-label">入驻企业</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">40%</div>
+                <div class="case-stat-label">效率提升</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">24h</div>
+                <div class="case-stat-label">快速部署</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 交通枢纽 -->
+  <div class="solution-block reveal" id="transport" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🚇 交通枢纽解决方案</h2>
+          <p>地铁、机场、车站专用通信系统，支持大规模并发，保障运营安全，提升应急处理能力。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：交通枢纽 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🚇</div>
+              <div class="text">交通枢纽图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-transport.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>高可靠设计</h3>
+            <p>冗余备份架构，单点故障不影响整体运行</p>
+          </div>
+          <div class="solution-feature">
+            <h3>大容量并发</h3>
+            <p>支持万人同时通信，满足高峰时段需求</p>
+          </div>
+          <div class="solution-feature">
+            <h3>应急联动</h3>
+            <p>与信号、监控、广播系统联动，统一指挥</p>
+          </div>
+          <div class="solution-feature">
+            <h3>抗干扰</h3>
+            <p>特殊环境抗干扰设计，确保信号稳定</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>杭州地铁 5 号线</h4>
+            <p>地铁专用数字集群通信系统，保障运营安全，支持应急联动。</p>
+            <div class="case-tags">
+              <span class="case-tag">高可靠</span>
+              <span class="case-tag">应急联动</span>
+              <span class="case-tag">抗干扰</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">&lt;0.1%</div>
+                <div class="case-stat-label">故障率</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">50%</div>
+                <div class="case-stat-label">响应提速</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">99.9%</div>
+                <div class="case-stat-label">用户满意</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-item">
+            <h4>杭州东站交通枢纽</h4>
+            <p>高铁站通信系统，覆盖候车厅、站台、地下空间，服务日均 10 万客流。</p>
+            <div class="case-tags">
+              <span class="case-tag">大容量</span>
+              <span class="case-tag">全覆盖</span>
+              <span class="case-tag">多部门协作</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">10 万+</div>
+                <div class="case-stat-label">日均客流</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">100%</div>
+                <div class="case-stat-label">区域覆盖</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">3min</div>
+                <div class="case-stat-label">应急响应</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 石油化工 -->
+  <div class="solution-block reveal" id="industry" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🏭 石油化工解决方案</h2>
+          <p>防爆通信系统，满足危险环境安全要求，支持区域调度与应急指挥。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：石油化工 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🏭</div>
+              <div class="text">石油化工图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-industry.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>防爆认证</h3>
+            <p>设备通过国家防爆认证，满足危险环境安全要求</p>
+          </div>
+          <div class="solution-feature">
+            <h3>区域调度</h3>
+            <p>按生产区域划分通信组，高效调度</p>
+          </div>
+          <div class="solution-feature">
+            <h3>应急指挥</h3>
+            <p>紧急情况一键呼叫，快速启动应急预案</p>
+          </div>
+          <div class="solution-feature">
+            <h3>耐腐蚀</h3>
+            <p>特殊材质处理，适应化工环境</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>镇海炼化</h4>
+            <p>大型石化企业防爆通信系统，覆盖全厂区，满足安全生产要求。</p>
+            <div class="case-tags">
+              <span class="case-tag">防爆认证</span>
+              <span class="case-tag">全覆盖</span>
+              <span class="case-tag">耐腐蚀</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">100%</div>
+                <div class="case-stat-label">防爆达标</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">40%</div>
+                <div class="case-stat-label">调度效率</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">30%</div>
+                <div class="case-stat-label">寿命延长</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-item">
+            <h4>宁波石化区</h4>
+            <p>化工园区通信系统，服务多家企业，统一调度管理。</p>
+            <div class="case-tags">
+              <span class="case-tag">多企业</span>
+              <span class="case-tag">统一调度</span>
+              <span class="case-tag">应急联动</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">50+</div>
+                <div class="case-stat-label">服务企业</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">5min</div>
+                <div class="case-stat-label">应急响应</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">0</div>
+                <div class="case-stat-label">安全事故</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 酒店物业 -->
+  <div class="solution-block reveal" id="hotel" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🏨 酒店物业解决方案</h2>
+          <p>提升服务效率的通信系统，集成客服、安保、工程等多部门协作。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：酒店物业 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🏨</div>
+              <div class="text">酒店物业图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-hotel.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>服务提升</h3>
+            <p>快速响应客人需求，提升服务满意度</p>
+          </div>
+          <div class="solution-feature">
+            <h3>多部门协作</h3>
+            <p>客服、安保、工程等部门无缝协作</p>
+          </div>
+          <div class="solution-feature">
+            <h3>易部署</h3>
+            <p>快速部署，不影响正常运营</p>
+          </div>
+          <div class="solution-feature">
+            <h3>工单管理</h3>
+            <p>工单自动分配，处理进度可追踪</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>杭州某五星级酒店</h4>
+            <p>酒店通信系统，集成客服、安保、工程，提升服务效率。</p>
+            <div class="case-tags">
+              <span class="case-tag">服务提升</span>
+              <span class="case-tag">工单管理</span>
+              <span class="case-tag">多部门协作</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">35%</div>
+                <div class="case-stat-label">响应提速</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">20%</div>
+                <div class="case-stat-label">满意度提升</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">15min</div>
+                <div class="case-stat-label">平均响应</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 应急指挥 -->
+  <div class="solution-block reveal" id="emergency" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🚨 应急指挥解决方案</h2>
+          <p>应急通信指挥系统，支持多方会商、视频联动、快速部署。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：应急指挥 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🚨</div>
+              <div class="text">应急指挥图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-emergency.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>快速响应</h3>
+            <p>一键启动应急预案，快速集结人员</p>
+          </div>
+          <div class="solution-feature">
+            <h3>多方会商</h3>
+            <p>支持多方语音/视频会商，协同决策</p>
+          </div>
+          <div class="solution-feature">
+            <h3>视频联动</h3>
+            <p>与监控系统联动，实时查看现场情况</p>
+          </div>
+          <div class="solution-feature">
+            <h3>快速部署</h3>
+            <p>便携式设备，快速搭建临时指挥中心</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>某市应急指挥中心</h4>
+            <p>城市级应急指挥系统，整合多部门资源，统一指挥调度。</p>
+            <div class="case-tags">
+              <span class="case-tag">多方会商</span>
+              <span class="case-tag">视频联动</span>
+              <span class="case-tag">统一指挥</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">10+</div>
+                <div class="case-stat-label">部门联动</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">60%</div>
+                <div class="case-stat-label">响应提速</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">100%</div>
+                <div class="case-stat-label">预案覆盖</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 教育医疗 -->
+  <div class="solution-block reveal" id="education" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div>
+      <div class="solution-header">
+        <div>
+          <h2>🏥 教育医疗解决方案</h2>
+          <p>学校、医院专用通信系统，支持紧急呼叫、日常调度、安全管理。</p>
+        </div>
+        <div>
+          <!-- 图片占位符：教育医疗 -->
+          <div class="solution-header-img">
+            <div class="solution-header-img-placeholder">
+              <div class="icon">🏥</div>
+              <div class="text">教育医疗图片</div>
+              <div class="size">建议尺寸：400x300px</div>
+              <div class="size">替换：images/solution-education.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-content">
+        <h3 style="font-size:20px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <h3>紧急呼叫</h3>
+            <p>一键呼叫，快速响应紧急情况</p>
+          </div>
+          <div class="solution-feature">
+            <h3>安全管理</h3>
+            <p>校园/医院安全监控，预防安全事件</p>
+          </div>
+          <div class="solution-feature">
+            <h3>日常调度</h3>
+            <p>日常通信调度，提升工作效率</p>
+          </div>
+          <div class="solution-feature">
+            <h3>易维护</h3>
+            <p>系统简单易用，维护成本低</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="case-showcase" style="height:100%;">
+        <h3>成功案例</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>杭州某三甲医院</h4>
+            <p>医院通信系统，支持紧急呼叫、医护调度、设备管理。</p>
+            <div class="case-tags">
+              <span class="case-tag">紧急呼叫</span>
+              <span class="case-tag">医护调度</span>
+              <span class="case-tag">设备管理</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">2min</div>
+                <div class="case-stat-label">响应时间</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">30%</div>
+                <div class="case-stat-label">效率提升</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">99%</div>
+                <div class="case-stat-label">医护满意</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-item">
+            <h4>杭州某大学</h4>
+            <p>校园通信系统，覆盖教学楼、宿舍、图书馆，服务 3 万师生。</p>
+            <div class="case-tags">
+              <span class="case-tag">全覆盖</span>
+              <span class="case-tag">安全管理</span>
+              <span class="case-tag">易维护</span>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-value">3 万+</div>
+                <div class="case-stat-label">服务师生</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">100%</div>
+                <div class="case-stat-label">区域覆盖</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-value">50%</div>
+                <div class="case-stat-label">管理效率</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <img src="../images/logo.png" alt="汉明科技" class="nav-logo-img">
+      </div>
+      <p>专业通信系统解决方案提供商</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>解决方案</h4>
+        <a href="#building">智能建筑</a>
+        <a href="#transport">交通枢纽</a>
+        <a href="#industry">石油化工</a>
+        <a href="#hotel">酒店物业</a>
+      </div>
+      <div class="footer-col">
+        <h4>检测系统</h4>
+        <a href="detection.html">系统介绍</a>
+        <a href="detection.html#features">核心功能</a>
+        <a href="detection.html#tech">技术优势</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">公司简介</a>
+        <a href="contact.html">联系我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2026 杭州汉明科技有限公司 版权所有</p>
+  </div>
+</footer>
+
+<!-- 悬浮工具栏 -->
+<div class="float-toolbar">
+  <div class="float-btn" id="wechatBtn">
+    <span>💬</span>
+    <div class="float-tooltip">
+      <div style="width:120px; height:120px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:8px;">微信二维码</div>
+      <p>扫码添加微信</p>
+    </div>
+  </div>
+  <div class="float-btn" id="phoneBtn">
+    <span>📞</span>
+    <div class="float-tooltip">
+      <p style="font-size:16px; font-weight:600; color:var(--accent);">139-6712-4481</p>
+    </div>
+  </div>
+  <a href="about.html#contact" class="float-btn">
+    <span>✉️</span>
+    <div class="float-tooltip">在线咨询</div>
+  </a>
+  <a href="#" class="float-btn" id="backToTop">
+    <span>↑</span>
+    <div class="float-tooltip">返回顶部</div>
+  </a>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+// 左侧导航栏滚动激活状态
+const sections = document.querySelectorAll('.solution-block');
+const navLinks = document.querySelectorAll('.left-nav a');
+const leftNav = document.querySelector('.left-nav');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - 200)) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').substring(1) === current) {
+      link.classList.add('active');
+    }
+  });
+  
+  // 控制导航栏显示/隐藏
+  if (pageYOffset >= 100) {
+    leftNav.classList.add('visible');
+  } else {
+    leftNav.classList.remove('visible');
+  }
+});
+</script>
+</body>
+</html>

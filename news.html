@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻中心 - 汉的科技</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.page-header {
+  position: relative;
+  height: 65vh;
+  min-height: 600px;
+  padding-top: 70px;
+  padding-left: 100px;
+  text-align: left;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.page-header h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #333333;
+}
+.page-header h1 span { color: #333333; }
+.page-header p { font-size: 20px; color: #666666; }
+.news-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+.news-header-inner {
+  max-width: 2260px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.news-categories {
+  display: flex;
+  gap: 15px;
+}
+.news-category {
+  padding: 8px 16px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.news-category:hover,
+.news-category.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.news-search {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.news-search input {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  width: 500px;
+}
+.news-search button {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.news-search button:hover {
+  background: var(--accent2);
+}
+.news-list {
+  max-width: 2260px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px var(--shadow);
+  display: flex;
+  flex-direction: row;
+  min-height: 250px;
+}
+.news-card:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 8px 32px var(--glow);
+  transform: translateY(-2px);
+}
+.news-img {
+  width: 300px;
+  height: 250px;
+  background: linear-gradient(135deg, var(--surface2), #dbeafe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.news-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+.news-category-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 4px 12px;
+  background: var(--accent);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.news-info h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--text);
+  line-height: 1.4;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.news-info p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.news-date {
+  font-size: 12px;
+  color: var(--text-light);
+}
+.news-read-more {
+  font-size: 24px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.news-read-more:hover {
+  color: var(--accent2);
+}
+@media (max-width: 768px) {
+  .news-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .news-categories {
+    justify-content: center;
+  }
+  .news-search {
+    justify-content: center;
+  }
+  .news-search input {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../images/logo.png" alt="汉的科技" class="nav-logo-img">
+    </a>
+    <div class="nav-menu">
+      <a href="../index.html">首页</a>
+      <div class="nav-item">
+        <a href="solutions.html">解决方案</a>
+        <div class="dropdown-menu">
+          <a href="solutions.html#building">智能建筑</a>
+          <a href="solutions.html#transport">交通枢纽</a>
+          <a href="solutions.html#industry">石油化工</a>
+          <a href="solutions.html#hotel">酒店物业</a>
+          <a href="solutions.html#emergency">应急指挥</a>
+          <a href="solutions.html#education">教育医疗</a>
+        </div>
+      </div>
+      <a href="detection.html">检测系统</a>
+      <div class="nav-item">
+        <a href="about.html">关于我们</a>
+        <div class="dropdown-menu">
+          <a href="about.html">公司简介</a>
+          <a href="about.html">服务承诺</a>
+          <a href="about.html#contact">联系我们</a>
+        </div>
+      </div>
+      <a href="news.html" class="active">新闻中心</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="slide-bg" style="background-image: url('../images/1新闻资讯.png');"></div>
+  <h1>新闻<span>中心</h1>
+  <p>公司动态、行业资讯、技术分享</p>
+</div>
+
+<!-- 新闻头部：分类和搜索 -->
+<div class="news-header">
+  <div class="news-header-inner">
+    <div class="news-categories">
+      <div class="news-category active">全部</div>
+      <div class="news-category">行业资讯</div>
+      <div class="news-category">产品信息</div>
+      <div class="news-category">公司新闻</div>
+    </div>
+    <div class="news-search">
+      <input type="text" placeholder="搜索新闻...">
+      <button>搜索</button>
+    </div>
+  </div>
+</div>
+
+<section class="news-list">
+  <div class="news-card reveal reveal-delay-1">
+    <div class="news-img">
+      <div class="news-category-tag">公司新闻</div>
+      <img src="../images/news-1.png" alt="汉明科技参加 2026 年国际通信展">
+    </div>
+    <div class="news-info">
+      <h3>汉明科技参加 2026 年国际通信展</h3>
+      <p>展示最新解决方案与服务体系，获得广泛关注。展会期间与多家企业达成合作意向。</p>
+      <div class="news-meta">
+        <span class="news-date">2026-03-01</span>
+        <a href="news-detail.html?id=news1" class="news-read-more">阅读更多 →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="news-card reveal reveal-delay-2">
+    <div class="news-img">
+      <div class="news-category-tag">产品信息</div>
+      <img src="../images/news-2.png" alt="服务升级：7×24 小时技术支持上线">
+    </div>
+    <div class="news-info">
+      <h3>服务升级：7×24 小时技术支持上线</h3>
+      <p>为更好服务客户，公司全面升级技术支持体系，实现 7×24 小时全天候响应。</p>
+      <div class="news-meta">
+        <span class="news-date">2026-02-15</span>
+        <a href="news-detail.html?id=news2" class="news-read-more">阅读更多 →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="news-card reveal reveal-delay-3">
+    <div class="news-img">
+      <div class="news-category-tag">公司新闻</div>
+      <img src="../images/news-3.png" alt="公司荣获'优秀供应商'称号">
+    </div>
+    <div class="news-info">
+      <h3>公司荣获"优秀供应商"称号</h3>
+      <p>感谢客户信任与支持，我们将继续提供优质服务，创造更大价值。</p>
+      <div class="news-meta">
+        <span class="news-date">2026-01-20</span>
+        <a href="news-detail.html?id=news3" class="news-read-more">阅读更多 →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="news-card reveal reveal-delay-4">
+    <div class="news-img">
+      <div class="news-category-tag">行业资讯</div>
+      <img src="../images/海能达 2025欧洲.png" alt="海能达亮相 PMRExpo 2025，深化欧洲关键通信布局">
+    </div>
+    <div class="news-info">
+      <h3>海能达亮相 PMRExpo 2025，深化欧洲关键通信布局</h3>
+      <p>海能达在 PMRExpo 2025 展示了其在欧洲关键通信布局中的创新应用，为欧洲通信行业带来了新的机遇。</p>
+      <div class="news-meta">
+        <span class="news-date">2026-01-10</span>
+        <a href="news-detail.html?id=news4" class="news-read-more">阅读更多 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <img src="../images/logo.png" alt="汉的科技" class="nav-logo-img">
+      </div>
+      <p>专业通信系统解决方案提供商<br>定制化解决方案 + 全方位服务支持</p>
+      <div class="footer-social">
+        <div class="social-icon">💬</div>
+        <div class="social-icon">📱</div>
+        <div class="social-icon">✉️</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>解决方案</h4>
+        <a href="solutions.html#building">智能建筑</a>
+        <a href="solutions.html#transport">交通枢纽</a>
+        <a href="solutions.html#industry">石油化工</a>
+        <a href="solutions.html#hotel">酒店物业</a>
+      </div>
+      <div class="footer-col">
+        <h4>检测系统</h4>
+        <a href="detection.html">系统介绍</a>
+        <a href="detection.html#features">核心功能</a>
+        <a href="detection.html#tech">技术优势</a>
+        <a href="detection.html#scenario">应用场景</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">公司简介</a>
+        <a href="about.html">案例展示</a>
+        <a href="news.html">新闻中心</a>
+        <a href="contact.html">联系我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2026 杭州汉明科技有限公司 版权所有</p>
+  </div>
+</footer>
+
+<!-- 悬浮工具栏 -->
+<div class="float-toolbar">
+  <div class="float-btn" id="wechatBtn">
+    <span>💬</span>
+    <div class="float-tooltip">
+      <div style="width:120px; height:120px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:8px;">微信二维码</div>
+      <p>扫码添加微信</p>
+    </div>
+  </div>
+  <div class="float-btn" id="phoneBtn">
+    <span>📞</span>
+    <div class="float-tooltip">
+      <p style="font-size:16px; font-weight:600; color:var(--accent);">139-6712-4481</p>
+    </div>
+  </div>
+  <a href="about.html#contact" class="float-btn">
+    <span>✉️</span>
+    <div class="float-tooltip">在线咨询</div>
+  </a>
+  <a href="#" class="float-btn" id="backToTop">
+    <span>↑</span>
+    <div class="float-tooltip">返回顶部</div>
+  </a>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

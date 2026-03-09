@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HandMind 检测系统 - 汉的科技</title>
+<meta name="description" content="HandMind 智能检测系统，实时监测、智能分析、预警推送，保障通信系统稳定运行">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.page-header {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  padding-top: 70px;
+  overflow: hidden;
+  text-align: left;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(240,246,255,0.92) 40%, transparent);
+  z-index: 1;
+}
+.page-header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.page-header h1 span { color: var(--accent); }
+.page-header p { font-size: 16px; color: var(--text-muted); }
+.system-section {
+  padding: 60px 20px;
+  max-width: 2560px;
+  margin-right:150px;
+  margin-left:150px;
+}
+.system-hero {
+  background: linear-gradient(135deg, #0055cc 0%, #0099ff 100%);
+  border-radius: 16px;
+  padding: 60px;
+  color: white;
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
+}
+
+.system-hero h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.system-hero p {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+.system-hero-visual {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  min-height: 300px;
+  overflow: hidden;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 50px 0;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+}
+.feature-card:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 8px 32px var(--glow);
+  transform: translateY(-4px);
+}
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 20px;
+}
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.feature-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.tech-section {
+  background: var(--surface2);
+  border-radius: 12px;
+  padding: 50px;
+  margin: 50px 0;
+}
+.tech-section h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.tech-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.tech-item-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.tech-item h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.tech-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.scenario-section {
+  margin: 50px 0;
+}
+.scenario-section h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+.scenario-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.scenario-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.scenario-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.scenario-content h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.scenario-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0f5ff 0%, #e8f4ff 100%);
+  border-radius: 12px;
+  margin-top: 50px;
+}
+.cta-section h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+.cta-section p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+@media (max-width: 992px) {
+  .system-hero {
+    grid-template-columns: 1fr;
+  }
+  .feature-grid,
+  .tech-grid,
+  .scenario-list {
+    grid-template-columns: 1fr;
+  }
+  .system-section > .reveal {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../images/logo.png" alt="汉的科技" class="nav-logo-img">
+    </a>
+    <div class="nav-menu">
+      <a href="../index.html">首页</a>
+      <div class="nav-item">
+        <a href="solutions.html">解决方案</a>
+        <div class="dropdown-menu">
+          <a href="solutions.html#building">智能建筑</a>
+          <a href="solutions.html#transport">交通枢纽</a>
+          <a href="solutions.html#industry">石油化工</a>
+          <a href="solutions.html#hotel">酒店物业</a>
+          <a href="solutions.html#emergency">应急指挥</a>
+          <a href="solutions.html#education">教育医疗</a>
+        </div>
+      </div>
+      <a href="detection.html" class="active">检测系统</a>
+      <div class="nav-item">
+        <a href="about.html">关于我们</a>
+        <div class="dropdown-menu">
+          <a href="about.html">公司简介</a>
+          <a href="about.html">服务承诺</a>
+          <a href="about.html#contact">联系我们</a>
+        </div>
+      </div>
+      <a href="news.html">新闻中心</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header" style="background-image: url('../images/摩天大楼.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <div class="page-header-content">
+    <h1>HandMind<span>检测系统</span></h1>
+    <p>智能监测 · 实时预警 · 保障通信系统稳定运行</p>
+  </div>
+</div>
+
+<section class="system-section">
+  
+  <!-- 系统介绍与核心功能 -->
+  <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <!-- 系统介绍 -->
+    <div class="system-hero" style="margin-bottom:0;">
+      <div>
+        <h2>HandMind 智能检测系统</h2>
+        <p>
+          自主研发的通信系统智能检测平台，集实时监测、智能分析、预警推送于一体。
+          7×24 小时不间断监控，提前发现潜在问题，保障通信系统稳定运行。
+        </p>
+        <a href="about.html#contact" class="btn-primary" style="background:white; color:var(--accent);">预约演示 →</a>
+      </div>
+      <div class="system-hero-visual">
+        <img src="../images/监测系统.png" alt="智能监控大屏" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+    </div>
+    
+    <!-- 核心功能 -->
+    <div>
+      <h3 style="text-align:center; font-size:28px; margin-bottom:20px; color:var(--text);">核心功能</h3>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:40px;">全方位监测，智能分析，主动预警</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>实时监测</h3>
+          <p>7×24 小时不间断监控通信系统状态，实时采集设备运行数据，可视化展示</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>智能分析</h3>
+          <p>AI 算法分析历史数据，识别异常模式，预测潜在故障，提前干预</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚨</div>
+          <h3>预警推送</h3>
+          <p>多级预警机制，短信/邮件/APP 多通道推送，确保及时响应</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>报表生成</h3>
+          <p>自动生成日报/周报/月报，支持自定义报表，数据导出分析</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>远程诊断</h3>
+          <p>支持远程接入诊断，快速定位问题，减少现场服务成本</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>移动管理</h3>
+          <p>手机 APP 随时随地查看系统状态，接收预警，处理工单</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 技术优势 -->
+  <div class="tech-section reveal">
+    <h3>技术优势</h3>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-item-icon">⚡</div>
+        <div>
+          <h4>毫秒级响应</h4>
+          <p>数据采集间隔可达 100ms，确保第一时间发现异常</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-icon">🎯</div>
+        <div>
+          <h4>99.9% 准确率</h4>
+          <p>AI 算法持续优化，故障识别准确率高达 99.9%</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-icon">🔒</div>
+        <div>
+          <h4>安全加密</h4>
+          <p>端到端加密传输，多重权限控制，保障数据安全</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-icon">🔗</div>
+        <div>
+          <h4>开放接口</h4>
+          <p>提供标准 API 接口，可与第三方系统无缝集成</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-icon">☁️</div>
+        <div>
+          <h4>云地协同</h4>
+          <p>支持本地部署和云端部署，灵活选择</p>
+        </div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-icon">📦</div>
+        <div>
+          <h4>模块化设计</h4>
+          <p>按需选配功能模块，降低初期投入成本</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 应用场景 -->
+  <div class="scenario-section reveal">
+    <h3>应用场景</h3>
+    <div class="scenario-list">
+      <div class="scenario-item">
+        <div class="scenario-icon">🏢</div>
+        <div class="scenario-content">
+          <h4>智能建筑</h4>
+          <p>监测楼宇通信设备运行状态，保障办公通信畅通</p>
+        </div>
+      </div>
+      <div class="scenario-item">
+        <div class="scenario-icon">🚇</div>
+        <div class="scenario-content">
+          <h4>交通枢纽</h4>
+          <p>实时监控地铁、机场通信系统，确保运营安全</p>
+        </div>
+      </div>
+      <div class="scenario-item">
+        <div class="scenario-icon">🏭</div>
+        <div class="scenario-content">
+          <h4>石油化工</h4>
+          <p>监测防爆通信设备，预防安全隐患</p>
+        </div>
+      </div>
+      <div class="scenario-item">
+        <div class="scenario-icon">🏥</div>
+        <div class="scenario-content">
+          <h4>教育医疗</h4>
+          <p>保障学校、医院通信系统稳定，支持紧急呼叫</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h3>立即体验 HandMind 检测系统</h3>
+    <p>免费试用 30 天，专业团队全程支持</p>
+    <a href="about.html#contact" class="btn-primary">联系我们 →</a>
+  </div>
+  
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <img src="../images/logo.png" alt="汉明科技" class="nav-logo-img">
+      </div>
+      <p>专业通信系统解决方案提供商<br>定制化解决方案 + 全方位服务支持</p>
+      <div class="footer-social">
+        <div class="social-icon">💬</div>
+        <div class="social-icon">📱</div>
+        <div class="social-icon">✉️</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>解决方案</h4>
+        <a href="solutions.html#building">智能建筑</a>
+        <a href="solutions.html#transport">交通枢纽</a>
+        <a href="solutions.html#industry">石油化工</a>
+        <a href="solutions.html#hotel">酒店物业</a>
+      </div>
+      <div class="footer-col">
+        <h4>检测系统</h4>
+        <a href="detection.html">系统介绍</a>
+        <a href="detection.html#features">核心功能</a>
+        <a href="detection.html#tech">技术优势</a>
+        <a href="detection.html#scenario">应用场景</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">公司简介</a>
+        <a href="about.html">案例展示</a>
+        <a href="news.html">新闻中心</a>
+        <a href="contact.html">联系我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2026 杭州汉明科技有限公司 版权所有</p>
+  </div>
+</footer>
+
+<!-- 悬浮工具栏 -->
+<div class="float-toolbar">
+  <div class="float-btn" id="wechatBtn">
+    <span>💬</span>
+    <div class="float-tooltip">
+      <div style="width:120px; height:120px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:8px;">微信二维码</div>
+      <p>扫码添加微信</p>
+    </div>
+  </div>
+  <div class="float-btn" id="phoneBtn">
+    <span>📞</span>
+    <div class="float-tooltip">
+      <p style="font-size:16px; font-weight:600; color:var(--accent);">139-6712-4481</p>
+    </div>
+  </div>
+  <a href="about.html#contact" class="float-btn">
+    <span>✉️</span>
+    <div class="float-tooltip">在线咨询</div>
+  </a>
+  <a href="#" class="float-btn" id="backToTop">
+    <span>↑</span>
+    <div class="float-tooltip">返回顶部</div>
+  </a>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
