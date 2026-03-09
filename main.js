@@ -191,11 +191,11 @@ document.querySelectorAll('form').forEach(form => {
 function initMobileMenu() {
   if (window.innerWidth <= 768) {
     const navMenu = document.querySelector('.nav-menu');
-    if (navMenu && !navMenu.querySelector('.mobile-toggle')) {
+    if (navMenu && !document.querySelector('.mobile-toggle')) {
       const toggle = document.createElement('button');
       toggle.className = 'mobile-toggle';
       toggle.innerHTML = '☰';
-      toggle.style.cssText = 'display:none; position:fixed; top:15px; right:20px; z-index:1001; background:var(--accent); color:white; border:none; border-radius:4px; padding:8px 12px; font-size:20px; cursor:pointer;';
+      toggle.style.cssText = 'display:block; position:fixed; top:15px; right:20px; z-index:1001; background:var(--accent); color:white; border:none; border-radius:4px; padding:8px 12px; font-size:20px; cursor:pointer;';
       
       toggle.addEventListener('click', () => {
         if (navMenu.style.display === 'block') {
@@ -222,8 +222,10 @@ function initMobileMenu() {
           navMenu.style.flexDirection = 'row';
           navMenu.style.padding = '0';
           navMenu.style.boxShadow = 'none';
+          toggle.style.display = 'none';
         } else {
           navMenu.style.display = 'none';
+          toggle.style.display = 'block';
         }
       });
     }
